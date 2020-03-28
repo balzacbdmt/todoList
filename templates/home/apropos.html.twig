@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UsergroupController!{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <a class="navbar-brand" href="{{ path('home') }}">Todo list</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('home') }}">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('getStarted') }}">Comment ça marche ?</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('aPropos') }}">A propos</a>
+      </li>
+      {% if app.user %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('label_index') }}">Vos labels</a>
+      </li>
+      {% endif %}
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Se connecter</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">S'inscrire</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row justify-content-center">
+  <div class="col-8">
+    <h1>{{ controller_name }}</h1>
+    <p>Ce projet a été mené en autonomie par <span class="font-weight-bolder">Balzac Baudemont</span> dans le cadre de la 
+      <span class="font-weight-bolder">licence Projet web &#38; mobile</span> de la Sorbonne.
+    </p>
+
+    <ul class="list-group col-6 m-auto">
+      <li class="list-group-item border border-info bg-info text-center font-weight-bolder">Technologies utilisées</li>
+      <li class="list-group-item border border-info list-group-item-info">Framework: Symfony 4.4.5</li>
+      <li class="list-group-item border border-info list-group-item-info">Design: BootStrap 4.4.1</li>
+      <li class="list-group-item border border-info list-group-item-info">Icônes: Font-awesome 4.7.0</li>
+      <li class="list-group-item border border-info list-group-item-info">Police: Montserrat sans-serif</li>
+      <li class="list-group-item border border-info list-group-item-info">Hébérgement: OVH</li>
+    </ul>
+
+    <p class="text-center mt-3">&#169; Balzac Baudemont LP projet web &#38; mobile 2019-2020</p>
+  </div>
+</div>
+{% endblock %}

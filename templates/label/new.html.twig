@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Label{% endblock %}
+
+{% block body %}
+{{ include('label/_form.html.twig', {'button_label': 'Créer un label', 'edit': false, 'title': 'Nouveau label'}) }}
+
+<a href="{{ path('label_index') }}"><button type="button" class="btn btn-info ml-5">&#60; Retour</button></a>
+{% endblock %}

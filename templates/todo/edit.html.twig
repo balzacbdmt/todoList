@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Todo{% endblock %}
+
+{% block body %}
+    {{ include('todo/_form.html.twig', {'button_label': 'Mettre a jour', 'edit': true, 'title': 'Editer une tâche'}) }}
+
+    <a href="{{ path('home') }}"><button type="button" class="btn btn-info ml-5">&#60; Retour</button></a>
+{% endblock %}
