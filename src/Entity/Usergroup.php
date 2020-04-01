@@ -56,12 +56,15 @@ class Usergroup
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
+    public function getUsers()
     {
         return $this->users;
+    }
+
+    public function setUsers(Array $array): self
+    {
+        $this->users = $array;
+        return $this;
     }
 
     public function addUser(User $user): self
@@ -111,5 +114,13 @@ class Usergroup
         }
 
         return $this;
+    }
+
+    /**
+     * @return string String representation of this class
+     */
+    public function __toString()
+    {
+        return $this->name;
     }
 }

@@ -1,0 +1,85 @@
+<style>
+.bottom-card {
+    position: absolute;
+    bottom: 1em;
+}
+
+.divTodoBtn {
+  height: 0;
+}
+
+.todoBtn {
+    position: absolute;
+    right: 5px;
+    font-size: 2em;
+    margin: 0 5px;
+}
+
+.btnEdit {
+  top: 0;
+  right: 1.5em;
+}
+
+.btnRm {
+  top: 0;
+}
+
+.btnRm:hover, .btnEdit:hover {
+    font-size: 2.1em;
+    cursor: pointer;
+}
+
+.addIcon {
+    font-size: 7em;
+    display: block;
+    margin: auto;
+}
+
+.addIcon:hover {
+    font-size: 7.3em;
+    cursor: pointer;
+}
+</style>
+
+<div class="card border border-info m-2" style="width: 20rem; min-height: 15rem;">
+    <div class="card-body">
+        <div class="divTodoBtn">
+            <span class="text-info text-right todoBtn btnEdit" onclick="window.location='/todo/edit/{{ t.id }}';">
+                <i class="fa fa-pencil"></i>
+            </span>
+            <form method="post" action="{{ path('todo_delete', {'id': t.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ t.id) }}">
+                {% if creator == true %}
+                <button class="btn">
+                <span class="text-info text-right todoBtn btnRm">
+                    <i class="fa fa-trash"></i>
+                </span>
+                </button>
+                {% endif %}
+            </form>
+        </div>
+        <div class="d-flex flex-wrap">
+            {% for l in t.labels %}
+                <div class="label rounded ml-3" style="border: 5px solid {{ l.color }}; width: 4em;"></div>
+            {% endfor %}
+        </div>
+        <h5 class="card-title">{{ t.name }}</h5>
+        <p class="card-text mb-1">{{ t.description }}</p>
+        <div class="bottom-card">
+            <p class="font-weight-lighter m-0">Créer le {{ t.startDate|date('d/m/Y') }}</p>
+            {% if t.deadline and not t.done %}
+                <p class="font-weight-lighter m-0">A terminer pour le {{ t.deadline|date('d/m/Y') }}</p>
+            {% elseif t.done %}
+                <p class="font-weight-lighter m-0">Terminé</p>
+            {% endif %}
+        </div>
+        {% if t.usergroups %}
+            {% for Guser in t.usergroups.users %}
+                {% if Guser == app.user %}
+                    <p class="text-center font-weight-lighter m-0">{{ t.usergroups.name }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

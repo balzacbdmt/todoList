@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier un groupe{% endblock %}
+{% block title %}Nouveau groupe{% endblock %}
 
 {% block body %}
-{{ include('usergroup/_form.html.twig', {'button_label': 'Mettre a jour', 'edit': true, 'title': 'Modifier un groupe'}) }}
+{{ include('usergroup/_form.html.twig', {'button_label': 'Créer un groupe', 'edit': false, 'title': 'Nouveau groupe'}) }}
 
 <a href="{{ path('usergroup_index') }}"><button type="button" class="btn btn-info ml-5">&#60; Retour</button></a>
 {% endblock %}

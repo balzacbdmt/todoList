@@ -2,16 +2,12 @@
     {{ form_start(form, {'attr': {'class': 'col-6 border border-info rounded p-3 text-center'}}) }}
     <p class="h4">{{ title }}</p>
     <div class="form-group">
-        <label for="label_name">Nom</label>
+        <label for="label_name">Nom du groupe</label>
         {{ form_widget(form.name, {'attr': {'class': 'form-control border-info'}}) }}
     </div>
     <div class="form-group">
-        <label for="label_description">Couleur</label>
-        {{ form_widget(form.color, {'attr': {'class': 'form-control border-info', 'placeholder': '#000000'}}) }}
-    </div>
-    <div class="form-group">
-        <label for="label_description">Couleur</label>
-        {{ form_widget(form.todos, {'attr': {'class': 'form-control border-info'}}) }}
+        <label for="label_description">Liste des utilisateurs</label>
+        {{ form_widget(form.users, {'attr': {'class': 'form-control border-info'}}) }}
     </div>
     <button type="submit" class="btn btn-info">{{ button_label }}</button>
     {{ form_end(form) }}

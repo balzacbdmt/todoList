@@ -29,7 +29,7 @@ class Label
     private $color;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Todo", mappedBy="labels")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Todo", mappedBy="labels") 
      */
     private $todos;
 

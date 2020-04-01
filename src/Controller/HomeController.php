@@ -6,18 +6,33 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Repository\TodoRepository;
+use App\Repository\UsergroupRepository;
 
+use Symfony\Component\Security\Core\Security;
 
 class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function index(TodoRepository $todoRepository)
+    public function index(TodoRepository $todoRepository, Security $security, UsergroupRepository $usergroupRepository)
     {
+        $userGrp = $usergroupRepository->findAllUG();
+
         return $this->render('home/home.html.twig', [
             'controller_name' => 'Accueil',
-            'todos' => $todoRepository->findAll(),
+            'todos' => $todoRepository->getTodoList($userGrp)
+        ]);
+    }
+
+    /**
+     * @Route("/doneTodo", name="todoDone")
+     */
+    public function doneTodo(TodoRepository $todoRepository, Security $security, UsergroupRepository $usergroupRepository)
+    {
+        return $this->render('home/doneTodo.html.twig', [
+            'controller_name' => 'Todo terminés',
+            'todos' => $todoRepository->getTodoList($usergroupRepository->findAllUG()),
         ]);
     }
 

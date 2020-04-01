@@ -25,21 +25,64 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ path('label_index') }}">Vos labels</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('usergroup_index') }}">Vos groupes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('todoDone') }}">Todos terminés</a>
+      </li>
       {% endif %}
     </ul>
     <ul class="navbar-nav">
+      {% if not app.user %}
       <li class="nav-item">
-        <a class="nav-link" href="/login">Se connecter</a>
+        <a class="nav-link" href="{{ path('security_user_login') }}">Se connecter</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/register">S'inscrire</a>
+        <a class="nav-link" href="{{ path('security_user_register') }}">S'inscrire</a>
       </li>
+      {% else %}
+      <li class="nav-item">
+        <p clas="">Bonjour {{ app.user.username }}</p>
+        <a class="nav-link" href="{{ path('security_user_logout') }}">Se déconnecter</a>
+      </li>
+      {% endif %}
     </ul>
   </div>
 </nav>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    Comment ça marche !?
+    <h1>Comment fonctionne la plateforme ?</h1>
+
+    <p class="mt-5">Pour commencer, créer vous un compte dans l'onglet "<b>S'inscrire</b>".</p>
+
+    <p class="mt-3">Ensuite, connecter vous sur la page "<b>Se connecter</b>".</p>
+
+    <p class="mt-3">Vous êtes désormais authentifier, bienvenue !</p>
+
+    <p class="mt-3">Comment créer une tâche ?</p>
+
+    <p class="ml-3">> Rien de plus simple, Cliquer sur le bouttons "nouvelle tâche" sur la page d'accueil, Remplissez les champs a votre guise et cliquer sur créer.</p>
+
+    <p class="mt-3">A quoi servent les labels ?</p>
+
+    <p class="ml-3">> Les labels servent a distinguer vos différentes tâche. Par exemple vous pouvez créer un label "important" et lui assigner la couleur rouge. Pour ce faire,
+     rendez-vous dans la page "vos labels" puis "Nouveau label". Attention, pour la couleur il faut reneigner un code couleur sous cette forme: <b>#FF0000</b></p>
+
+    <p class="mt-3">Des groupes, mais pour quoi faire ?</p>
+
+    <p class="ml-3">> Les groupes vous permettent d'attribuer une tâche communne avec vos collégues par exemple. Pour créer un groupe, même procédé que les labels ! <br>
+    Une fois votre groupe créer, vous pouvez créer une nouvelle tâche et l'attribuer a votre groupe.</p>
+
+    <p class="mt-3">Peut-on attribuer un groupe ou un label a une tâche déja existante ?</p>
+
+    <p class="ml-3">> Bien-sûr, Cliquer sur l'icone d'edition d'un label et vous pouvez modifier tout ce que bon vous semble.</p>
+
+    <p class="mt-3">J'ai fini une tâche ou la ranger ?</p>
+
+    <p class="ml-3">> Pour ce faire, cliquer sur le bouton d'edition de votre label et coché tout en bas "Effectué". Votre tâche sera donc déplacer dans la page "tâche terminés".</p>
+
+
+
 </div>
 {% endblock %}

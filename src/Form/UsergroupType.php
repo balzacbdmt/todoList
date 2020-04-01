@@ -2,31 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\Todo;
+use App\Entity\Usergroup;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TodoType extends AbstractType
+class UsergroupType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')
-            ->add('description')
-            ->add('done')
-            ->add('startdate')
-            ->add('deadline')
-            ->add('labels')
-            //->add('users')
-            ->add('usergroups')
+            ->add('users')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Todo::class,
+            'data_class' => Usergroup::class,
         ]);
     }
 }

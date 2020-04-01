@@ -129,11 +129,17 @@ class Todo
     }
 
     /**
-     * @return Collection|Label[]
+     * @return ArrayCollection|Label[]
      */
-    public function getLabels(): Collection
+    public function getLabels()
     {
         return $this->labels;
+    }
+
+    public function setLabels(Array $array): self
+    {
+        $this->labels = $array;
+        return $this;
     }
 
     public function addLabel(Label $label): self
