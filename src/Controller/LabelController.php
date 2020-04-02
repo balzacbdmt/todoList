@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("/label")
+ * @Route("/licence01/label")
  * @IsGranted("ROLE_USER")
  */
 class LabelController extends AbstractController

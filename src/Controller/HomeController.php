@@ -10,6 +10,9 @@ use App\Repository\UsergroupRepository;
 
 use Symfony\Component\Security\Core\Security;
 
+/**
+ * @Route("/licence01")
+ */
 class HomeController extends AbstractController
 {
     /**

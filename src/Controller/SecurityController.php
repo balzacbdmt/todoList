@@ -13,6 +13,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+/**
+ * @Route("/licence01")
+ */
 class SecurityController extends AbstractController
 {
     /**

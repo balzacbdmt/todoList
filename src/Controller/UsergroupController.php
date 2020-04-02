@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("/usergroup")
+ * @Route("/licence01/usergroup")
  * @IsGranted("ROLE_USER")
  */
 class UsergroupController extends AbstractController

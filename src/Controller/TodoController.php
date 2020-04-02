@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("/todo")
+ * @Route("/licence01/todo")
  * @IsGranted("ROLE_USER")
  */
 class TodoController extends AbstractController
